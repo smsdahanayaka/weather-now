@@ -7,6 +7,7 @@
 **Date:** September 2025  
 **Developer:** Shan Dahanayaka  
 **Course:** ICET - Web Development Final Project
+**URL:** [Weather-now-web-application](https://smsdahanayaka.github.io/weather-now/)
 
 ## Executive Summary
 
