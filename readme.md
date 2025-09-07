@@ -13,6 +13,11 @@
 
 Weather Now is a responsive web application that provides comprehensive weather information including current conditions, forecasts, historical data, and interactive mapping features. The application leverages the WeatherAPI.com service to deliver real-time weather data with a focus on user experience and accessibility.
 
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+
 ## 1. Project Scope
 
 ### 1.1 Included Features
