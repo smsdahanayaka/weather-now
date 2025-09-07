@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Now - Shan Dahanayaka</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-------------------------- PAGE HEADER SECTION START -------------------------->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i> Weather Now
+                </div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search for a city, region, or country...">
+                    <button class="btn btn-primary" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-secondary" id="locationBtn">
+                        <i class="fas fa-location-dot"></i> My Location
+                    </button>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-secondary" id="unitToggle">°C</button>
+                    <button class="btn btn-secondary" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-------------------------- PAGE HEADER SECTION END -------------------------->
+
+    <!-------------------------- PAGE CONTENT START -------------------------->
+    <main class="main-content">
+        <div class="container">
+            <!-- Alerts Section -->
+            <div id="alertsContainer" class="hidden"></div>
+
+            <!-- Favorites -->
+            <div class="favorites" id="favoritesContainer"></div>
+
+            <!-- Loading State -->
+            <div id="loadingContainer" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Loading weather data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorContainer" class="error hidden">
+                <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h2>Something went wrong</h2>
+                <p id="errorMessage">Please try again later.</p>
+            </div>
+
+            <!-- Weather Content -->
+            <div id="weatherContent" class="weather-grid hidden">
+                <!-- Current Weather -->
+                <div class="weather-card current-weather">
+                    <div class="current-weather-content">
+                        <div class="weather-icon-large" id="currentIcon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+
+                        <div class="weather-main">
+                            <div class="temperature" id="currentTemp">22°</div>
+                            <div class="location" id="currentLocation">Loading...</div>
+                            <div class="description" id="currentDescription">Clear Sky</div>
+                            <button class="btn btn-secondary" id="addFavoriteBtn" style="margin-top: 1rem;">
+                                <i class="fas fa-heart"></i> Add to Favorites
+                            </button>
+                        </div>
+
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-droplet"></i>
+                                </div>
+                                <div class="detail-label">Humidity</div>
+                                <div class="detail-value" id="currentHumidity">65%</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div class="detail-label">Wind Speed</div>
+                                <div class="detail-value" id="currentWind">12 km/h</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="detail-label">Visibility</div>
+                                <div class="detail-value" id="currentVisibility">10 km</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-thermometer-half"></i>
+                                </div>
+                                <div class="detail-label">Feels Like</div>
+                                <div class="detail-value" id="currentFeelsLike">25°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3-Day Forecast -->
+                <div class="weather-card">
+                    <h3 style="margin-bottom: 1rem;">3-Day Forecast</h3>
+                    <div class="forecast-container" id="forecastContainer">
+                        <!-- Forecast items will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- 7-Day History -->
+                <div class="weather-card">
+                    <h3 style="margin-bottom: 1rem;">7-Day History</h3>
+                    <div class="history-container" id="historyContainer">
+                        <!-- History items will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="weather-card map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-------------------------- PAGE CONTENT END -------------------------->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
